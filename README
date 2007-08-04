@@ -1,3 +1,5 @@
+
+
 ImmutableAttributes
 ===================
 
@@ -9,3 +11,7 @@ end
 
 When MyModel.find(:first).permalink = 'anything' is called it will raise an ImmutableAttributeError
 MyModel.new.permalink = 'works!' will properly set the value because the record is unsaved.
+
+Created by Jack Danger Canty @ http://6brand.com
+Released under the same licence as Rails (MIT)
+
