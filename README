@@ -12,6 +12,15 @@ end
 When MyModel.find(:first).permalink = 'anything' is called it will raise an ImmutableAttributeError
 MyModel.new.permalink = 'works!' will properly set the value because the record is unsaved.
 
+If you'd only like this to happen for certain conditions, and want to handle other attribute-writers, too (like update_attribute), you can use the validation.
+
+validates_immutable :permalink
+
+Configuration options for the validation:
+* :message - A customer error message (default is: "can't be changed")
+* :if - Specifies a method, proc, or string to call to determine if the validation should occure (e.g., :if => :allow_validation or :if => Proc.new{|user| user.signup_step > 2}. The method, proc or string should return or evaluate to a true or false value.
+* :unless - Specifies a method, proc, or string to call to determine if the validation should not occure (e.g., :unless => :skip_validation or :unless => Proc.new{|user| user.signup_step <= 2}. The method, proc or string should return or evaluate to a true or false value.
+
 Created by Jack Danger Canty @ http://6brand.com
 Released under the same licence as Rails (MIT)
 
