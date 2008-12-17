@@ -3,6 +3,7 @@ require 'hoe'
 require './lib/immutable_attributes.rb'
 
 Hoe.new('ImmutableAttributes', ImmutableAttributes::VERSION) do |p|
-  p.developer('FIX', 'FIX@example.com')
+  p.developer('Jack Danger Canty', 'git@6brand.com')
+  p.summary = "Immutable Attributes is an ActiveRecord extension that prevents existing data from changing"
 end
 
