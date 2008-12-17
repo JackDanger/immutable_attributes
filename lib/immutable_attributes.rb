@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'activerecord'
+
 module ImmutableErrors
   class ImmutableAttributeError < ActiveRecord::ActiveRecordError
   end
@@ -52,3 +55,6 @@ module ImmutableAttributes
     end
   end
 end
+
+ActiveRecord.send :include, ImmutableErrors
+ActiveRecord::Base.extend ImmutableAttributes
