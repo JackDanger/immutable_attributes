@@ -1,0 +1,9 @@
+Manifest.txt
+README
+Rakefile
+init.rb
+install.rb
+lib/immutable_attributes.rb
+rails/init.rb
+test/immutable_attributes_test.rb
+uninstall.rb
