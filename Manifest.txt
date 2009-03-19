@@ -1,6 +1,7 @@
 Manifest.txt
 README
 Rakefile
+immutable_attributes.gemspec
 init.rb
 install.rb
 lib/immutable_attributes.rb
