@@ -4,8 +4,8 @@ require 'activerecord'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'immutable_attributes')
 
 ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :dbfile  => ":memory:"
+  :adapter  => "sqlite3",
+  :database => ":memory:"
 )
 ActiveRecord::Schema.define do
   create_table :records do |table|

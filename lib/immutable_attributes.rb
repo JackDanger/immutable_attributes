@@ -7,7 +7,6 @@ module ImmutableErrors
 end
 
 module ImmutableAttributes
-  VERSION = "1.0.3"
   def attr_immutable(*args)
     args.each do |meth|
       class_eval do

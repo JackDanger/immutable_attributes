@@ -1,0 +1,7 @@
+README
+Rakefile
+init.rb
+install.rb
+lib/*.rb
+rails/init.rb
+test/*.rb
