@@ -7,6 +7,7 @@ module ImmutableErrors
 end
 
 module ImmutableAttributes
+  VERSION = "1.0.3"
   def attr_immutable(*args)
     args.each do |meth|
       class_eval do
@@ -42,6 +43,7 @@ module ImmutableAttributes
 
       def setup_originals
         self.class.immutables.each do |attr_name|
+          next unless attribute_names.include? attr_name
           instance_variable_set("@original_#{attr_name}", send(attr_name.to_s))
         end
       end
