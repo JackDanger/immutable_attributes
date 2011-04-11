@@ -1,5 +1,8 @@
-require 'rubygems'
-require 'activerecord'
+begin
+  require 'activerecord'
+rescue LoadError
+  require 'active_record'
+end
 
 module ImmutableErrors
   class ImmutableAttributeError < ActiveRecord::ActiveRecordError
