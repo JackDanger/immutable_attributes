@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Jack Danger Canty"]
   s.date = %q{2011-04-29}
   s.description = %q{Allows specified attributes to be freely overwritten _until_ the record is saved for the first time}
-  s.email = %q{gems@6brand.com}
+  s.email = %q{gemcutter@jackcanty.com}
   s.extra_rdoc_files = [
     "LICENSE",
     "README"
