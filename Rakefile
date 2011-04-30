@@ -7,7 +7,7 @@ begin
     gem.name = "immutable_attributes"
     gem.summary = %Q{Selected attributes are permanent once a record is created}
     gem.description = %Q{Allows specified attributes to be freely overwritten _until_ the record is saved for the first time}
-    gem.email = "gems@6brand.com"
+    gem.email = "gemcutter@jackcanty.com"
     gem.homepage = "http://github.com/JackDanger/immutable_attributes"
     gem.authors = ["Jack Danger Canty"]
   end
