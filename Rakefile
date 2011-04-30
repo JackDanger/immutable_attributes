@@ -16,9 +16,10 @@ rescue LoadError
 end
 
 require 'rake/testtask'
-task :test do
-  exec "ruby test/immutable_attributes_test.rb"
+Rake::TestTask.new(:test) do |test|
+  test.libs << '.'
+  test.pattern = 'test/*_test.rb'
+  test.verbose = true
 end
-
 task :default => :test
 
