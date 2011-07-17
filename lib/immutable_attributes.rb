@@ -21,6 +21,16 @@ module ImmutableAttributes
         end
       end
     end
+    # handle ActiveRecord::Base#[]=
+    class_eval <<-RUBY
+      def []=(attr_name, value)
+        if #{args}.include? attr_name
+          raise(ActiveRecord::ImmutableAttributeError, "\#{attr_name} is immutable!")
+        else
+          write_attribute(attr_name, value)
+        end
+      end
+    RUBY
   end
 
   def validates_immutable(*attr_names)
