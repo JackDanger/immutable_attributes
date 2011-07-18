@@ -24,8 +24,13 @@ class ImmutableAttributesTest < Test::Unit::TestCase
     assert Record.new(:name => 'record name')
   end
 
-  def test_immutable_attribute_cannot_be_changed
+  def test_immutable_attribute_cannot_be_changed_via_mass_setter
     record = Record.create!(:name => 'record name')
     assert_raises(ActiveRecord::ImmutableAttributeError) { record.update_attributes(:name => 'new name') }
+  end
+
+  def test_immutable_attribute_cannot_be_changed_via_bracket_setter
+    record = Record.create!(:name => 'record name')
+    assert_raises(ActiveRecord::ImmutableAttributeError) { record[:name] = 'new name' }
   end
 end

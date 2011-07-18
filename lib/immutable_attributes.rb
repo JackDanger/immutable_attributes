@@ -12,25 +12,20 @@ end
 module ImmutableAttributes
   VERSION = "1.0.3"
   def attr_immutable(*args)
-    args.each do |meth|
-      class_eval do
+    class_eval do
+      args.each do |meth|
         define_method("#{meth}=") do |value|
           new_record? || read_attribute(meth).nil? ?
             write_attribute(meth, value) :
             raise(ActiveRecord::ImmutableAttributeError, "#{meth} is immutable!")
         end
       end
-    end
-    # handle ActiveRecord::Base#[]=
-    class_eval <<-RUBY
-      def []=(attr_name, value)
-        if #{args}.include? attr_name
-          raise(ActiveRecord::ImmutableAttributeError, "\#{attr_name} is immutable!")
-        else
-          write_attribute(attr_name, value)
-        end
+      # handle ActiveRecord::Base#[]=
+      define_method :[]= do |meth, value|
+        return write_attribute(meth, value) unless args.include?(meth.to_sym)
+        send "#{meth}=", value
       end
-    RUBY
+    end
   end
 
   def validates_immutable(*attr_names)
