@@ -13,17 +13,17 @@ module ImmutableAttributes
   VERSION = "1.0.3"
   def attr_immutable(*args)
     class_eval do
-      args.each do |meth|
-        define_method("#{meth}=") do |value|
-          new_record? || read_attribute(meth).nil? ?
-            write_attribute(meth, value) :
-            raise(ActiveRecord::ImmutableAttributeError, "#{meth} is immutable!")
+      args.each do |attr|
+        define_method("#{attr}=") do |value|
+          new_record? || read_attribute(attr).nil? ?
+            write_attribute(attr, value) :
+            raise(ActiveRecord::ImmutableAttributeError, "#{attr} is immutable!")
         end
       end
       # handle ActiveRecord::Base#[]=
-      define_method :[]= do |meth, value|
-        return write_attribute(meth, value) unless args.include?(meth.to_sym)
-        send "#{meth}=", value
+      define_method :[]= do |attr, value|
+        return write_attribute(attr, value) unless args.include?(attr.to_sym)
+        send "#{attr}=", value
       end
     end
   end
@@ -34,10 +34,10 @@ module ImmutableAttributes
 
     @immutables = attr_names
 
-    attr_names.each do |meth|
+    attr_names.each do |attr|
       class_eval do
-        define_method("original_#{meth}") do
-          instance_variable_get("@original_#{meth}")
+        define_method("original_#{attr}") do
+          instance_variable_get("@original_#{attr}")
         end
       end
     end
