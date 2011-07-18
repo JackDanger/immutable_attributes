@@ -9,7 +9,7 @@ begin
     gem.description = %Q{Allows specified attributes to be freely overwritten _until_ the record is saved for the first time}
     gem.email = "gemcutter@jackcanty.com"
     gem.homepage = "http://github.com/JackDanger/immutable_attributes"
-    gem.authors = ["Jack Danger Canty"]
+    gem.authors = ["Jack Danger Canty", "Terry Heath", "Nicholas Mertaugh"]
   end
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
