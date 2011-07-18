@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{immutable_attributes}
-  s.version = "1.1.4"
+  s.version = "1.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Jack Danger Canty"]
-  s.date = %q{2011-04-29}
+  s.authors = ["Jack Danger Canty", "Terry Heath", "Nicholas Mertaugh"]
+  s.date = %q{2011-07-18}
   s.description = %q{Allows specified attributes to be freely overwritten _until_ the record is saved for the first time}
   s.email = %q{gemcutter@jackcanty.com}
   s.extra_rdoc_files = [
@@ -33,9 +33,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.4.2}
   s.summary = %q{Selected attributes are permanent once a record is created}
-  s.test_files = [
-    "test/immutable_attributes_test.rb"
-  ]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
